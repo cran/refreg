@@ -1,0 +1,22 @@
+#' SO2 and Nox concentrations during a pollution episode
+#'
+#' SO2 and Nox concentrations in the As Pontes thermal power plant surrondings,
+#' during a pollution episode.
+#'
+#' @format A data frame with 288 observations and 13 variables:
+#' \describe{
+#'   \item{Date}{The observation day, hour and minute.}
+#'   \item{So2}{So2 air concentration at the present time.}
+#'   \item{Nox}{Nox air concentration at the present time.}
+#'   \item{So2_0}{So2 air concentration registered 30 minutes before than the So2 one.}
+#'   \item{Nox_0}{Nox air concentration registered 30 minutes before than the Nox one.}
+#'   \item{So2_1}{So2 air concentration registered 45 minutes before than the So2 one.}
+#'   \item{Nox_1}{Nox air concentration registered 45 minutes before than the Nox one.}
+#'   \item{So2_2}{So2 air concentration registered 60 minutes before than the So2 one.}
+#'   \item{Nox_2}{Nox air concentration registered 60 minutes before than the Nox one.}
+#'   \item{So2_3}{So2 air concentration registered 75 minutes before than the So2 one.}
+#'   \item{Nox_3}{Nox air concentration registered 75 minutes before than the Nox one.}
+#'   \item{So2_4}{So2 air concentration registered 90 minutes before than the So2 one.}
+#'   \item{Nox_4}{Nox air concentration registered 90 minutes before than the Nox one.}
+#'   }
+"pollution_episode"
