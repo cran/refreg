@@ -23,26 +23,28 @@ and variance covariance matrix of a trivariate variable. Non linear effects
 might be estimated for continuous covariates using penalized splines.
 }
 \examples{
-dm_no = subset(aegis,aegis$dm=="no")
+dm_no <- subset(aegis, aegis$dm == "no")
 
 # Model formulas
-mu1 = fpg ~ s(age)
-mu2 = hba1c ~ s(age)
-mu3 = fru~s(age)
-var1 = ~ s(age)
-var2 = ~ s(age)
-var3 = ~s(age)
-theta12 =  ~ s(age)
-theta13 =  ~ s(age)
-theta23 =  ~ s(age)
-f = list(mu1,mu2,mu3,var1,var2,var3,theta12,theta13,theta23)
+mu1 <- fpg ~ s(age)
+mu2 <- hba1c ~ s(age)
+mu3 <- fru~s(age)
+var1 <- ~ s(age)
+var2 <- ~ s(age)
+var3 <- ~ s(age)
+theta12 <- ~ s(age)
+theta13 <- ~ s(age)
+theta23 <- ~ s(age)
+f <- list(mu1, mu2, mu3, var1, var2, var3, theta12, theta13, theta23)
 
 # Model fit
-fit = trivRegr(f,data=dm_no)
+fit <- trivRegr(f, data = dm_no)
 # Trivariate region estimation
-region = trivRegion(fit,tau=0.95)
-plot(region,col=2,planes=TRUE)
-plot(region,cond=TRUE,newdata=data.frame(age=c(20,80)),
-     xlab="FPG, mg/dl",ylab="HbA1c, \%",zlab="Fru, mg/dL")
+region <- trivRegion(fit, tau = 0.95)
+plot(region, col = 2, planes = TRUE)
+plot(region,
+  cond = TRUE, newdata = data.frame(age = c(20, 80)),
+  xlab = "FPG, mg/dl", ylab = "HbA1c, \%", zlab = "Fru, mg/dL"
+)
 
 }

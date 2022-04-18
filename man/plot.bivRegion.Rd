@@ -58,9 +58,9 @@ This function allow to depict the estimated bivariate reference/probabilistic re
 the estandarized residuals scale (cond=FALSE), or for any covariate value (cond=TRUE).
 }
 \examples{
-Y = cbind(rnorm(100),rnorm(100))
-Y = as.data.frame(Y)
-names(Y) = c("y1","y2")
-reg = bivRegion(Y,tau=0.95,shape=2)
+Y <- cbind(rnorm(100), rnorm(100))
+Y <- as.data.frame(Y)
+names(Y) <- c("y1", "y2")
+reg <- bivRegion(Y, tau = 0.95, shape = 2)
 plot(reg)
 }

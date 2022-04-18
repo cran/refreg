@@ -16,6 +16,6 @@
 #'   \item{fpg}{Fasting plasma glucose levels (mg/dL).}
 #'   \item{hba1c}{Glycated hemoglobin percentage.}
 #'   \item{fru}{Fructosamine concentration (mg/dL).}
-#'}
+#' }
 #' @references Gude F, Diaz--Vidal P, Rua--Perez C, et al. Glycemic variability and its association with demographics and lifestyles in ageneral adult population. J Diabetes Sci Technol. 2017; 11(4): 780--790
 "aegis"

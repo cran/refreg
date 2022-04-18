@@ -28,40 +28,43 @@ might be estimated for continuous covariates using penalized spline smoothers.
 }
 \examples{
 # Bivariate reference region for fasting plasma glucose (fpg)
-#and glycated hemoglobin (hba1c) levels depending on age
+# and glycated hemoglobin (hba1c) levels depending on age
 
-dm_no = subset(aegis,aegis$dm == "no")#select healthy patients
+dm_no <- subset(aegis, aegis$dm == "no") # select healthy patients
 # 1.1) Define predictors
-mu1 = fpg ~ s(age)
-mu2 = hba1c ~ s(age)
-var1 = ~ s(age)
-var2 = ~ s(age)
-rho = ~ s(age)
-f = list(mu1,mu2,var1,var2,rho)
+mu1 <- fpg ~ s(age)
+mu2 <- hba1c ~ s(age)
+var1 <- ~ s(age)
+var2 <- ~ s(age)
+rho <- ~ s(age)
+f <- list(mu1, mu2, var1, var2, rho)
 
-fit = bivRegr(f,data=dm_no)
+fit <- bivRegr(f, data = dm_no)
 
 # 1.2) Depict the estimated covariates effects
-plot(fit,eq=1)
-plot(fit,eq=2)
-plot(fit,eq=3)
-plot(fit,eq=4)
-plot(fit,eq=5)
+plot(fit, eq = 1)
+plot(fit, eq = 2)
+plot(fit, eq = 3)
+plot(fit, eq = 4)
+plot(fit, eq = 5)
 # 1.2.1) Depict the estimated covariates effects with CI (Not Run)
 \donttest{
-s0 = summary_boot(fit,B=100) #no parallelization
-#s1 = summary_boot(fit,B=100,parallel=TRUE) #parallelization
-plot(s0,eq=1)
+s0 <- summary_boot(fit, B = 100) # no parallelization
+# s1 = summary_boot(fit,B=100,parallel=TRUE) #parallelization
+plot(s0, eq = 1)
 }
 
 # 1.3) Obtain the reference region in the standarized residuals
-region = bivRegion(fit,tau=0.95,shape=2)
+region <- bivRegion(fit, tau = 0.95, shape = 2)
 plot(region)
 
 # 1.4) Identify those patients located outside the reference region
 summary(region)
 
 # 1.5) Depict the conditional reference region for two ages
-plot(region,cond=TRUE,newdata=data.frame(age=c(20,50)),col="grey",pch="*",
-reg.lwd = 2,reg.lty=2)
+plot(region,
+  cond = TRUE, newdata = data.frame(age = c(20, 50)), col = "grey", pch = "*",
+  reg.lwd = 2, reg.lty = 2
+)
+
 }

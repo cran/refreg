@@ -49,10 +49,10 @@ function will estimate a bivariate reference region for the model standarized
 residuals.
 }
 \examples{
-Y = cbind(rnorm(100),rnorm(100))
-Y = as.data.frame(Y)
-names(Y) = c("y1","y2")
-region = bivRegion(Y,tau=0.95,shape=2)
+Y <- cbind(rnorm(100), rnorm(100))
+Y <- as.data.frame(Y)
+names(Y) <- c("y1", "y2")
+region <- bivRegion(Y, tau = 0.95, shape = 2)
 plot(region)
 }
 \references{

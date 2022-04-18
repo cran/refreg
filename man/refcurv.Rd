@@ -2,7 +2,7 @@
 % Please edit documentation in R/refcurv.R
 \name{refcurv}
 \alias{refcurv}
-\title{Univariate reference curve}
+\title{Univariate reference curve model}
 \usage{
 refcurv(mu = "y~s(x)", sigma = "~s(x)", data = data)
 }
@@ -18,19 +18,20 @@ This function returns univariate conditional quantiles estimated using a non par
 }
 \description{
 This function obtain univariate conditional quantiles as described
-in Martínez Silva et. al (2016).
+in Martinez-Silva et. al (2016).
 }
 \details{
-In the Martínez Silva et. al (2016) the non linear effects of the continuous
+In the Martinez Silva et. al (2016) the non linear effects of the continuous
 covariates are estimating through polynomial kernel smoother, in this package we implement the
 same methodology but using penalized splines in order to reduce computational cost.
 }
 \examples{
 #--- Glycation hemoglobin reference curve depending on age
-dm_no = subset(aegis,aegis$dm == "no")
-fit1 = refcurv(mu = "hba1c~s(age)",sigma = "~s(age)",data=dm_no)
-plot(fit1,newdata = data.frame(age = 18:90),tau=c(0.025,0.05,0.10,0.90,0.95,0.975))
+dm_no <- subset(aegis, aegis$dm == "no")
+fit1 <- refcurv(mu = "hba1c~s(age)", sigma = "~s(age)", data = dm_no)
+plot(fit1, newdata = data.frame(age = 18:90), tau = c(0.025, 0.05, 0.10, 0.90, 0.95, 0.975))
+
 }
 \references{
-Martínez--Silva, I., Roca--Pardiñas, J., & Ordóñez, C. (2016). Forecasting SO2 pollution incidents by means of quantile curves based on additive models. Environmetrics, 27(3), 147--157.
+Martinez--Silva, I., Roca--Pardinas, J., & Ordonez, C. (2016). Forecasting SO2 pollution incidents by means of quantile curves based on additive models. Environmetrics, 27(3), 147--157.
 }

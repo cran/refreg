@@ -40,16 +40,18 @@ for estimating variance, and correlation models.
 }
 \examples{
 n <- 100
-x <- runif(n,-1,1)
-y <- x^2 + rnorm(n, sd=0.1)
+x <- runif(n, -1, 1)
+y <- x^2 + rnorm(n, sd = 0.1)
 df <- data.frame(y, x)
 plot(df$x, df$y)
-m1 <- ACE(y = "y", predictor = "~s(x)", restriction = "positive",
-      eps = 0.01, itmax = 10, data = df)$fit
+m1 <- ACE(
+  y = "y", predictor = "~s(x)", restriction = "positive",
+  eps = 0.01, itmax = 10, data = df
+)$fit
 nw <- data.frame(x = seq(-1, 1, 0.1))
 abline(h = 0, col = 2)
-lines(exp(predict(m1,newdata = nw)) ~ nw$x, col = 3, lwd = 2)
-legend("top",legend=c("ACE fit","Zero"),lty=1,lwd=2,col=c(3,2),bty="n")
+lines(exp(predict(m1, newdata = nw)) ~ nw$x, col = 3, lwd = 2)
+legend("top", legend = c("ACE fit", "Zero"), lty = 1, lwd = 2, col = c(3, 2), bty = "n")
 }
 \references{
 Hastie, T. & Tibshirani, J. (1990) Generalized additive models.
